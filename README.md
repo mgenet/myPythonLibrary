@@ -3,7 +3,7 @@ A collection of python tools.
 ### Installation
 Get the code:
 ```
-> git clone git@github.com:mgenet/myPythonLibrary
+> git clone https://github.com/mgenet/myPythonLibrary
 ```
 To load the library within python, the simplest is to add the folder containing myPythonLibrary to `PYTHONPATH`:
 ```
