@@ -10,27 +10,42 @@
 ###                                                                  ###
 ########################################################################
 
+import sys
+
 ########################################################################
 
 def my_print(
         verbose,
-        string):
+        string,
+        newline=True,
+        flush=True):
 
     if not hasattr(my_print, "initialized"):
         my_print.initialized = True
         my_print.verbose_ini = verbose
-    if (verbose > 0): print (my_print.verbose_ini - verbose)*" |  "+string
+    if (verbose > 0):
+        sys.stdout.write((my_print.verbose_ini - verbose)*" |  "+string)
+        if (newline):
+            sys.stdout.write("\n")
+        if (flush):
+            sys.stdout.flush()
 
 ########################################################################
 
-def print_str(tab, string):
-    print  " | "*tab + string
+def print_str(string, tab=0, newline=True, flush=True):
+    sys.stdout.write(" | "*tab + string)
+    if (newline): sys.stdout.write("\n")
+    if (flush):   sys.stdout.flush()
 
-def print_var(tab, name, val):
-    print " | "*tab + name + " = " + str(val)
+def print_var(name, val, tab=0, newline=True, flush=True):
+    sys.stdout.write(" | "*tab + name + " = " + str(val))
+    if (newline): sys.stdout.write("\n")
+    if (flush):   sys.stdout.flush()
 
-def print_sci(tab, name, val):
-    print " | "*tab + name.ljust(13) + " = " + format(val,".4e")
+def print_sci(name, val, tab=0, newline=True, flush=True):
+    sys.stdout.write(" | "*tab + name.ljust(13) + " = " + format(val,".4e"))
+    if (newline): sys.stdout.write("\n")
+    if (flush):   sys.stdout.flush()
 
 ########################################################################
 
@@ -52,4 +67,3 @@ def print_sci(tab, name, val):
 
     #def print_sci(self, name, val, var_level=0):
         #print " | "*(self.cur_level+var_level) + name.ljust(13) + " = " + format(val,".4e")
-
