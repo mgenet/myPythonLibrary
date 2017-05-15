@@ -5,7 +5,7 @@ Get the code:
 ```
 git clone https://github.com/mgenet/myPythonLibrary
 ```
-To load the library within python, the simplest is to add the folder containing myPythonLibrary to `PYTHONPATH`:
+To load the library within python, the simplest is to add the folder containing `myPythonLibrary` to `PYTHONPATH`:
 ```
 export PYTHONPATH=$PYTHONPATH:/path/to/folder
 ```
