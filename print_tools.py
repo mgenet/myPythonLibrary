@@ -48,7 +48,7 @@ def print_sci(name, val, tab=0, newline=True, flush=True): # MG20180416: Still u
 
 ########################################################################
 
-class Printer:
+class Printer():
 
 
 
