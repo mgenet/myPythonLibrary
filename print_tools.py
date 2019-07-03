@@ -64,12 +64,22 @@ class Printer():
         self.max_level = max_level
 
         if (silent):
+            self.must_close = False
             self.output = open(os.devnull, "w")
         else:
             if (filename is None):
+                self.must_close = False
                 self.output = sys.stdout
             else:
+                self.must_close = True
                 self.output = open(filename, "w")
+
+
+
+    def __del__(self):
+
+        if (self.must_close):
+            self.output.close()
 
 
 
@@ -136,12 +146,6 @@ class Printer():
 
 
 
-    def close(self):
-
-        self.output.close()
-
-
-
 ########################################################################
 
 class TablePrinter():
@@ -155,11 +159,14 @@ class TablePrinter():
             silent=False):
 
         if (silent):
+            self.must_close = False
             self.output = open(os.devnull, "w")
         else:
             if (filename is None):
+                self.must_close = False
                 self.output = sys.stdout
             else:
+                self.must_close = True
                 self.output = open(filename, "w")
 
         self.titles = titles
@@ -176,6 +183,16 @@ class TablePrinter():
 
 
 
+    def __del__(self):
+
+        self.output.write("-"+"-".join(["-"*self.width for title in self.titles])+"-\n")
+        self.output.flush()
+
+        if (self.must_close):
+            self.output.close()
+
+
+
     def write_line(self,
             values):
 
@@ -187,15 +204,6 @@ class TablePrinter():
                 strings += [format(value, ".2e")]
         self.output.write("|"+"|".join([string.center(self.width) for string in strings])+"|\n")
         self.output.flush()
-
-
-
-    def close(self):
-
-        self.output.write("-"+"-".join(["-"*self.width for title in self.titles])+"-\n")
-        self.output.flush()
-
-        self.output.close()
 
 
 
@@ -225,14 +233,14 @@ class DataPrinter():
 
 
 
+    def __del__(self):
+
+        self.file.close()
+
+
+
     def write_line(self,
             values):
 
         self.file.write(" "+self.sep.join([str(value).center(self.width) for value in values])+"\n")
         self.file.flush()
-
-
-
-    def close(self):
-
-        self.file.close()
