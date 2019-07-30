@@ -76,7 +76,7 @@ class Printer():
 
 
 
-    def __del__(self):
+    def close(self):
 
         if (self.must_close):
             self.output.close()
@@ -183,7 +183,7 @@ class TablePrinter():
 
 
 
-    def __del__(self):
+    def close(self):
 
         self.output.write("-"+"-".join(["-"*self.width for title in self.titles])+"-\n")
         self.output.flush()
@@ -233,7 +233,7 @@ class DataPrinter():
 
 
 
-    def __del__(self):
+    def close(self):
 
         self.file.close()
 
