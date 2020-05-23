@@ -1,5 +1,6 @@
 *.pyc
 *.kdev4
 .spyproject
+build
 dist
 *.egg-info
