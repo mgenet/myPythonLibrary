@@ -72,7 +72,10 @@ class Printer():
                 self.output = sys.stdout
             else:
                 self.must_close = True
-                self.output = open(filename, "w", encoding='utf-8')
+                if (sys.version_info.major >= 3):
+                    self.output = open(filename, "w", encoding='utf-8')
+                else:
+                    self.output = open(filename, "w")
 
 
 
@@ -167,7 +170,10 @@ class TablePrinter():
                 self.output = sys.stdout
             else:
                 self.must_close = True
-                self.output = open(filename, "w", encoding='utf-8')
+                if (sys.version_info.major >= 3):
+                    self.output = open(filename, "w", encoding='utf-8')
+                else:
+                    self.output = open(filename, "w")
 
         self.titles = titles
 
@@ -227,7 +233,10 @@ class DataPrinter():
             self.width = width
         self.sep = sep
 
-        self.file = open(self.filename, "w", encoding='utf-8')
+        if (sys.version_info.major >= 3):
+            self.file = open(self.filename, "w", encoding='utf-8')
+        else:
+            self.file = open(self.filename, "w")
         self.file.write("#"+self.sep.join([name.center(self.width) for name in self.names])+"\n")
         self.file.flush()
 
