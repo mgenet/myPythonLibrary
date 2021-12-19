@@ -222,13 +222,20 @@ class DataPrinter():
     def __init__(self,
             names,
             filename,
+            limited_precision=False,
             width=None,
             sep=" "):
 
         self.names = names
         self.filename = filename
+        if (limited_precision):
+            min_width = 6
+            self.write_line = self.write_line_limited_precision
+        else:
+            min_width = 23
+            self.write_line = self.write_line_full_precision
         if (width is None):
-            self.width = max([len(name) for name in self.names]+[18])+2
+            self.width = max(min_width, max([len(name) for name in self.names]))
         else:
             self.width = width
         self.sep = sep
@@ -248,8 +255,16 @@ class DataPrinter():
 
 
 
-    def write_line(self,
+    def write_line_full_precision(self,
             values):
 
         self.file.write(" "+self.sep.join([str(value).center(self.width) for value in values])+"\n")
+        self.file.flush()
+
+
+
+    def write_line_limited_precision(self,
+            values):
+
+        self.file.write(" "+self.sep.join([format(value, "+1.3f").center(self.width) for value in values])+"\n")
         self.file.flush()
