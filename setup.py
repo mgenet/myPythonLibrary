@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="myPythonLibrary",
-    version="2020.05.23",
+    version="2021.10.21",
     author="Martin Genet",
     author_email="martin.genet@polytechnique.edu",
     description=open("README.md", "r").readlines()[1][:-1],
@@ -19,3 +19,8 @@ setuptools.setup(
     install_requires=['numpy'],
     # python_requires='>=3.6',
 )
+
+# python -m keyring set https://upload.pypi.org/legacy/ martin.genet
+
+# python setup.py sdist bdist_wheel
+# python -m twine upload dist/*
