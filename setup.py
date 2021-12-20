@@ -20,7 +20,10 @@ setuptools.setup(
     # python_requires='>=3.6',
 )
 
-# python -m keyring set https://upload.pypi.org/legacy/ martin.genet
+# python -m keyring set https://upload.pypi.org martin.genet
 
 # python setup.py sdist bdist_wheel
-# python -m twine upload dist/*
+
+# twine upload dist/*
+
+# twine upload --repository-url https://gitlab.example.com/api/v4/projects/myPythonLibrary/packages/pypi dist/*

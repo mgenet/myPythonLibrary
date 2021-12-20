@@ -1,0 +1,13 @@
+before_script:
+  - uname -a
+  - python --version
+
+pypi:
+    stage: deploy
+    only:
+      - tags
+    image: python
+    script:
+      - pip install -U twine
+      - python setup.py sdist bdist_wheel
+      - twine upload --skip-existing -u $PYPI_USER -p $PYPI_PASS dist/*
