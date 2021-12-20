@@ -2,12 +2,18 @@ before_script:
   - uname -a
   - python --version
 
+stages:
+  - deploy
+
 pypi:
     stage: deploy
     only:
       - tags
     image: python
+    variables:
+      TWINE_USERNAME: $PYPI_USER
+      TWINE_PASSWORD: $PYPI_PASS
     script:
       - pip install -U twine
       - python setup.py sdist bdist_wheel
-      - twine upload --skip-existing -u $PYPI_USER -p $PYPI_PASS dist/*
+      - twine upload dist/*

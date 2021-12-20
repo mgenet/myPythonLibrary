@@ -1,8 +1,13 @@
+import datetime
+import os
 import setuptools
+
+# version = os.environ['CI_COMMIT_TAG']
+version = datetime.date.today().strftime("%Y.%m.%d")
 
 setuptools.setup(
     name="myPythonLibrary",
-    version="2021.12.19",
+    version=version,
     author="Martin Genet",
     author_email="martin.genet@polytechnique.edu",
     description=open("README.md", "r").readlines()[1][:-1],
