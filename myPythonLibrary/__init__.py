@@ -2,4 +2,5 @@
 
 from .Struct import *
 from .mat_vec_tools import *
+from .Test import *
 from .print_tools import *
