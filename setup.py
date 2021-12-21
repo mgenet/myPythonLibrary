@@ -30,6 +30,6 @@ setuptools.setup(
 
 # python setup.py sdist bdist_wheel
 
-# twine upload dist/*
+# twine upload --skip-existing dist/*
 
-# twine upload --repository-url https://gitlab.inria.fr/api/v4/projects/myPythonLibrary/packages/pypi dist/*
+# twine upload --skip-existing --repository-url https://gitlab.inria.fr/api/v4/projects/myPythonLibrary/packages/pypi dist/*
