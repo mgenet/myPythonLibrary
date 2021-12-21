@@ -1,8 +1,13 @@
+import datetime
+import os
 import setuptools
+
+# version = os.environ['CI_COMMIT_TAG']
+version = datetime.date.today().strftime("%Y.%m.%d")
 
 setuptools.setup(
     name="myPythonLibrary",
-    version="2021.12.19",
+    version=version,
     author="Martin Genet",
     author_email="martin.genet@polytechnique.edu",
     description=open("README.md", "r").readlines()[1][:-1],
@@ -20,10 +25,11 @@ setuptools.setup(
     # python_requires='>=3.6',
 )
 
-# python -m keyring set https://upload.pypi.org martin.genet
+# keyring set https://upload.pypi.org/legacy martin.genet
+# keyring set https://upload.pypi.org martin.genet
 
 # python setup.py sdist bdist_wheel
 
 # twine upload dist/*
 
-# twine upload --repository-url https://gitlab.example.com/api/v4/projects/myPythonLibrary/packages/pypi dist/*
+# twine upload --repository-url https://gitlab.inria.fr/api/v4/projects/myPythonLibrary/packages/pypi dist/*
