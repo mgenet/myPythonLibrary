@@ -21,6 +21,7 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
+    scripts=["myPythonLibrary/__init__.py.py"],
     install_requires=['numpy'],
     # python_requires='>=3.6',
 )
