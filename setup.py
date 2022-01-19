@@ -33,4 +33,4 @@ setuptools.setup(
 
 # twine upload --skip-existing dist/*
 
-# twine upload --skip-existing --repository-url https://gitlab.inria.fr/api/v4/projects/myPythonLibrary/packages/pypi dist/*
+# twine upload --skip-existing --repository-url https://gitlab.inria.fr/api/v4/projects/6770/packages/pypi dist/*
