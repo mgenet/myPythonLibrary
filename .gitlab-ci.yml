@@ -9,6 +9,9 @@ pypi:
   stage: deploy
   only:
     - tags
+  tags:
+    - ci.inria.fr
+    - small
   image: python
   variables:
     TWINE_USERNAME: $PYPI_USER
@@ -22,6 +25,9 @@ gitlab:
   stage: deploy
   only:
     - tags
+  tags:
+    - ci.inria.fr
+    - small
   image: python
   script:
     - pip install -U twine
