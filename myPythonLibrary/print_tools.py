@@ -224,7 +224,8 @@ class DataPrinter():
             filename,
             limited_precision=False,
             width=None,
-            sep=" "):
+            sep=" ",
+            comment="#"):
 
         self.names = names
         self.filename = filename
@@ -244,7 +245,7 @@ class DataPrinter():
             self.file = open(self.filename, "w", encoding='utf-8')
         else:
             self.file = open(self.filename, "w")
-        self.file.write("#"+self.sep.join([name.center(self.width) for name in self.names])+"\n")
+        self.file.write(comment+self.sep.join([name.center(self.width) for name in self.names])+"\n")
         self.file.flush()
 
 
