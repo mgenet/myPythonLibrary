@@ -65,7 +65,10 @@ class Printer():
 
         if (silent):
             self.must_close = False
-            self.output = open(os.devnull, "w")
+            if (sys.version_info.major >= 3):
+                self.output = open(os.devnull, "w", encoding='utf-8')
+            else:
+                self.output = open(os.devnull, "w")
         else:
             if (filename is None):
                 self.must_close = False
