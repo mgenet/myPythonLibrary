@@ -270,5 +270,5 @@ class DataPrinter():
     def write_line_limited_precision(self,
             values):
 
-        self.file.write(" "+self.sep.join([format(value, "+1.3f").center(self.width) for value in values])+"\n")
+        self.file.write(" "+self.sep.join([str(value).center(self.width) if (type(value) is int) else format(value, "+1.3f").center(self.width) for value in values])+"\n")
         self.file.flush()
