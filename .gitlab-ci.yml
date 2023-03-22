@@ -1,6 +1,6 @@
-before_script:
-  - uname -a
-  - python --version
+# before_script:
+#   - uname -a
+#   - python --version
 
 stages:
   - deploy
