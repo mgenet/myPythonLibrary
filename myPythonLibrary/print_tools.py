@@ -1,18 +1,18 @@
 #coding=utf8
 
-########################################################################
-###                                                                  ###
-### Created by Martin Genet, 2012-2022                               ###
-###                                                                  ###
-### University of California at San Francisco (UCSF), USA            ###
-### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
-### École Polytechnique, Palaiseau, France                           ###
-###                                                                  ###
-########################################################################
+################################################################################
+###                                                                          ###
+### Created by Martin Genet, 2012-2023                                       ###
+###                                                                          ###
+### University of California at San Francisco (UCSF), USA                    ###
+### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland         ###
+### École Polytechnique, Palaiseau, France                                   ###
+###                                                                          ###
+################################################################################
 
 import sys
 
-########################################################################
+################################################################################
 
 def my_print(
         verbose,
@@ -28,19 +28,36 @@ def my_print(
         if (newline): sys.stdout.write("\n")
         if (flush):   sys.stdout.flush()
 
-########################################################################
+################################################################################
 
-def print_str(string, tab=0, newline=True, flush=True): # MG20180416: Still used in dolfin_dic
+def print_str(
+        string,
+        tab=0,
+        newline=True,
+        flush=True): # MG20180416: Still used in dolfin_warp
+    
     sys.stdout.write(" | "*tab + string)
     if (newline): sys.stdout.write("\n")
     if (flush):   sys.stdout.flush()
 
-def print_var(name, val, tab=0, newline=True, flush=True): # MG20180416: Still used in dolfin_dic
+def print_var(
+        name,
+        val,
+        tab=0,
+        newline=True,
+        flush=True): # MG20180416: Still used in dolfin_warp
+    
     sys.stdout.write(" | "*tab + name + " = " + str(val))
     if (newline): sys.stdout.write("\n")
     if (flush):   sys.stdout.flush()
 
-def print_sci(name, val, tab=0, newline=True, flush=True): # MG20180416: Still used in dolfin_dic
+def print_sci(
+        name,
+        val,
+        tab=0,
+        newline=True,
+        flush=True): # MG20180416: Still used in dolfin_warp
+    
     sys.stdout.write(" | "*tab + name.ljust(13) + " = " + format(val,".4e"))
     if (newline): sys.stdout.write("\n")
     if (flush):   sys.stdout.flush()

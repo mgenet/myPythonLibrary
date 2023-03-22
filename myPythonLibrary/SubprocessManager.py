@@ -1,6 +1,14 @@
 #coding=utf8
 
 ################################################################################
+###                                                                          ###
+### Created by Martin Genet, 2012-2023                                       ###
+###                                                                          ###
+### University of California at San Francisco (UCSF), USA                    ###
+### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland         ###
+### École Polytechnique, Palaiseau, France                                   ###
+###                                                                          ###
+################################################################################
 
 import os
 import socket
@@ -57,6 +65,8 @@ class SubprocessManager():
         self.wait_for_available_process()
         self.start_new_process(*args, **kwargs)
 
+################################################################################
+ 
 class TasksManager():
     def __init__(self,
             use_subprocesses : bool = False,

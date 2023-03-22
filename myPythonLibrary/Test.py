@@ -1,14 +1,14 @@
 #coding=utf8
 
-########################################################################
-###                                                                  ###
-### Created by Martin Genet, 2012-2022                               ###
-###                                                                  ###
-### University of California at San Francisco (UCSF), USA            ###
-### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
-### École Polytechnique, Palaiseau, France                           ###
-###                                                                  ###
-########################################################################
+################################################################################
+###                                                                          ###
+### Created by Martin Genet, 2012-2023                                       ###
+###                                                                          ###
+### University of California at San Francisco (UCSF), USA                    ###
+### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland         ###
+### École Polytechnique, Palaiseau, France                                   ###
+###                                                                          ###
+################################################################################
 
 import filecmp
 import numpy
@@ -16,7 +16,7 @@ import os
 import sys
 import shutil
 
-########################################################################
+################################################################################
 
 class Test():
     
