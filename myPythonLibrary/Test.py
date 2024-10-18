@@ -13,8 +13,8 @@
 import filecmp
 import numpy
 import os
-import sys
 import shutil
+import sys
 
 ################################################################################
 
