@@ -76,6 +76,8 @@ class Test():
         # print (res_array)
         ref_array = numpy.loadtxt(ref_filename)[-1,:]
         # print (ref_array)
+        if (res_array.shape != ref_array.shape):
+            return False
         if (numpy.linalg.norm(ref_array) > 1e-6):
             error = numpy.linalg.norm(res_array-ref_array)/numpy.linalg.norm(ref_array)
         else:
