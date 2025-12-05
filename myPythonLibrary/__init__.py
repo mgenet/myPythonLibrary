@@ -4,5 +4,6 @@ from .Printer import *
 from .Struct import *
 from .SubprocessManager import *
 from .Test import *
+from .get_next_pypi_version import *
 from .mat_vec_tools import *
 from .print_tools import *

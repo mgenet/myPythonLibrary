@@ -10,14 +10,14 @@
 ###                                                                          ###
 ################################################################################
 
-import numpy
-
 ################################################################################
 
 def vec_col_to_mat_sym(
         vec,
         mat=None,
         with_sqrt=False):
+
+    import numpy
 
     if (numpy.size(vec,0) == 3):
         if (mat is None):
@@ -50,6 +50,8 @@ def vec_col3_to_mat_sym22(
         vec,
         mat=None,
         with_sqrt=False):
+
+    import numpy
 
     #assert (numpy.size(vec,0) == 3), "Wrong vector dimension in vec_col3_to_mat_sym22 (vec="+str(vec)+", numpy.size(vec,0)="+str(numpy.size(vec,0))+"). Aborting."
     if (mat is None):
@@ -95,6 +97,8 @@ def vec_col6_to_mat_sym33(
         vec,
         mat=None,
         with_sqrt=False):
+
+    import numpy
 
     #assert (numpy.size(vec,0) == 6), "Wrong vector dimension in vec_col3_to_mat_sym22 (vec="+str(vec)+", numpy.size(vec,0)="+str(numpy.size(vec,0))+"). Aborting."
     if (mat is None):
@@ -163,6 +167,8 @@ def mat_sym_to_vec_col(
         vec=None,
         with_sqrt=False):
 
+    import numpy
+
     if (numpy.size(mat,0) == 2) and (numpy.size(mat,1) == 2):
         if (vec is None):
             return mat_sym22_to_vec_col3(
@@ -192,6 +198,8 @@ def mat_sym22_to_vec_col3(
         mat,
         vec=None,
         with_sqrt=False):
+
+    import numpy
 
     if (vec is None):
         if (with_sqrt):
@@ -230,6 +238,8 @@ def mat_sym33_to_vec_col6(
         mat,
         vec=None,
         with_sqrt=False):
+
+    import numpy
 
     if (vec is None):
         if (with_sqrt):

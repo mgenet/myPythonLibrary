@@ -11,7 +11,6 @@
 ################################################################################
 
 import filecmp
-import numpy
 import os
 import shutil
 import sys
@@ -34,6 +33,7 @@ class Test():
         self.res_folder    = res_folder
         self.perform_tests = perform_tests
         if (tester == "numpy"):
+            import numpy
             self.tester = self.numpy
         elif (tester == "filecmp"):
             self.tester = self.filecmp
