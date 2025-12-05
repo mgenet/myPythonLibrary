@@ -184,26 +184,33 @@ class DataPrinter():
         else:
             self.width = width
         self.sep = sep
+        self.comment = comment
 
         if (sys.version_info.major >= 3):
             self.file = open(self.filename, "w", encoding='utf-8')
         else:
             self.file = open(self.filename, "w")
-        self.file.write(comment+self.sep.join([name.center(self.width) for name in self.names])+"\n")
+        self.file.write(self.comment+self.sep.join([name.center(self.width) for name in self.names])+"\n")
         self.file.flush()
 
     def close(self):
 
         self.file.close()
 
+    def write_comment(self,
+            comment : str):
+
+        self.file.write(self.comment+comment+"\n")
+        self.file.flush()
+
     def write_line_full_precision(self,
-            values=[]):
+            values : list = []):
 
         self.file.write(" "+self.sep.join([str(value).center(self.width) for value in values])+"\n")
         self.file.flush()
 
     def write_line_limited_precision(self,
-            values=[]):
+            values : list = []):
 
         self.file.write(" "+self.sep.join([str(value).center(self.width) if (type(value) is int) else format(value, "+1.3f").center(self.width) for value in values])+"\n")
         self.file.flush()
