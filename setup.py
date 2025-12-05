@@ -2,8 +2,11 @@ import datetime
 import os
 import setuptools
 
-# version = os.environ['CI_COMMIT_TAG']
-version = datetime.date.today().strftime("%Y.%m.%d")
+from ./myPythonLibrary/get_next_pypi_version import get_next_pypi_version
+
+# version = os.environ["CI_COMMIT_TAG"]
+# version = datetime.date.today().strftime("%Y.%m.%d")
+version = get_next_pypi_version("dolfin_warp")
 
 setuptools.setup(
     name="myPythonLibrary",
@@ -22,8 +25,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     scripts=["myPythonLibrary/__init__.py.py"],
-    install_requires=['numpy'],
-    # python_requires='>=3.6',
+    install_requires=["numpy", "fire"],
+    # python_requires=">=3.6",
 )
 
 # keyring set https://upload.pypi.org/legacy martin.genet
