@@ -11,7 +11,6 @@
 ################################################################################
 
 import filecmp
-import numpy
 import os
 import shutil
 import sys
@@ -72,6 +71,7 @@ class Test():
         return filecmp.cmp(res_filename, ref_filename)
 
     def numpy(self, res_filename, ref_filename):
+        import numpy
         res_array = numpy.loadtxt(res_filename)[-1,:]
         # print (res_array)
         ref_array = numpy.loadtxt(ref_filename)[-1,:]
